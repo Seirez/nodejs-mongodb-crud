@@ -390,7 +390,7 @@ table.table .avatar {
     <script>
 		async function fetchData() {
 			try {
-				const response = await fetch('/employees');
+				const response = await fetch('/api/employees');
 				const employees = await response.json();
 
 				const tableBody = document.getElementById('employeeTableBody');
@@ -425,7 +425,7 @@ table.table .avatar {
 				const formData = new FormData(document.getElementById('addEmployeeForm'));
 				const urlSearchParams = new URLSearchParams(formData);
 
-				const response = await fetch('/addEmployee', {
+				const response = await fetch('/api/addEmployee', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/x-www-form-urlencoded',
@@ -475,7 +475,7 @@ table.table .avatar {
 			const employeeId = document.getElementById('editEmployeeForm')._id.value;
 
 			try {
-				const response = await fetch(`/edit/${employeeId}`, {
+				const response = await fetch(`/api/edit/${employeeId}`, {
 					method: 'PUT',
 					headers: {
 						'Content-Type': 'application/json',
@@ -498,7 +498,7 @@ table.table .avatar {
 		async function deleteEmployee(id) {
 			if (confirm('Are you sure you want to delete this employee?')) {
 				try {
-					const response = await fetch(`/delete/${id}`, {
+					const response = await fetch(`/api/delete/${id}`, {
 						method: 'DELETE',
 						headers: { 'Content-Type': 'application/json' },
 					});
