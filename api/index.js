@@ -1,6 +1,7 @@
 const express = require('express');
+const mongodb = require('mongodb');
 const bodyParser = require('body-parser');
-const { MongoClient } = require('mongodb');
+const { ObjectId } = require('mongodb');
 require('dotenv').config();
 const app = express();
 
@@ -16,32 +17,17 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files (like your HTML, CSS, and JS files)
 app.use(express.static('public'));
 
-// MongoDB Realm Data API connection string
-const MONGODB_REALM_DATA_API = process.env.MONGODB_REALM_DATA_API;
-
-// Connect to MongoDB Realm
-const client = new MongoClient(MONGODB_REALM_DATA_API, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-client.connect().then(() => {
-  console.log('Connected to MongoDB Realm Data API');
-});
-
 // Define routes
-app.use('/api/employees', employeesRoute(client));
-app.use('/api/addEmployee', addEmployeeRoute(client));
-app.use('/api/edit', editRoute(client));
-app.use('/api/delete', deleteRoute(client));
+app.use('/api/employees', employeesRoute);
+app.use('/api/addEmployee', addEmployeeRoute);
+app.use('/api/edit', editRoute);
+app.use('/api/delete', deleteRoute);
 
 // For any other route, serve the public/index.html
 app.use('*', express.static('public'));
 
 // Export the Express app
 module.exports = app;
-
-
 
 // // Before vercel hosting
 // const express = require('express');
