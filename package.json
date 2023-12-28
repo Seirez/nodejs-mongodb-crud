@@ -6,6 +6,7 @@
     "mongodb": "^6.3.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "server": "nodemon index.js"
   }
 }
