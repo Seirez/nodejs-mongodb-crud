@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const { ObjectId } = require('mongodb');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Use middleware to parse JSON and URL-encoded bodies
 app.use(bodyParser.json());
