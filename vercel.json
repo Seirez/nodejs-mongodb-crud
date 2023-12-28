@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "/.*", "use": "@vercel/node" }
+    ],
+    "routes": [
+        { "src": "/employees", "dest": "/index.js" },
+        { "src": "/addEmployee", "dest": "/index.js" },
+        { "src": "/edit/:id", "dest": "/index.js" },
+        { "src": "/employees/:_id", "dest": "/index.js" },
+        { "src": "/delete/:id", "dest": "/index.js" },
+        { "src": "/(.*)", "dest": "/index.js" }
+    ]
+}
+  
