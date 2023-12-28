@@ -25,6 +25,8 @@ app.use('*', express.static('public'));
 // Export the Express app
 module.exports = app;
 
+
+// // Before vercel hosting
 // const express = require('express');
 // const mongodb = require('mongodb');
 // const bodyParser = require('body-parser');
