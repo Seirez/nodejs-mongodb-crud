@@ -11,5 +11,8 @@
         { "src": "/api/employees/:_id", "dest": "/api/employees.js" },
         { "src": "/api/delete/:id", "dest": "/api/delete.js" },
         { "src": "/(.*)", "dest": "/public/index.html" }
+    ],
+    "rewrites": [
+        {"source": "/(.*)", "destination": "/"}
     ]
 }

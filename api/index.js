@@ -5,10 +5,10 @@ const { ObjectId } = require('mongodb');
 require('dotenv').config();
 const app = express();
 
-const employeesRoute = require('./api/employees');
-const addEmployeeRoute = require('./api/addEmployee');
-const editRoute = require('./api/edit');
-const deleteRoute = require('./api/delete');
+const employeesRoute = require('./employees');
+const addEmployeeRoute = require('./addEmployee');
+const editRoute = require('./edit');
+const deleteRoute = require('./delete');
 
 // Use middleware to parse JSON and URL-encoded bodies
 app.use(express.json());
