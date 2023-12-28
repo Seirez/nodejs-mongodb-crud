@@ -2,16 +2,17 @@ const express = require('express');
 const mongodb = require('mongodb');
 const bodyParser = require('body-parser');
 const { ObjectId } = require('mongodb');
+require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 // Use middleware to parse JSON and URL-encoded bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB connection string (replace with your actual MongoDB connection string)
-const mongoUri = 'mongodb+srv://root:root@lib.i8iuvoi.mongodb.net/?retryWrites=true&w=majority';
+const mongoUri = process.env.MONGODB_URI;
 
 // Serve static files (like your HTML, CSS, and JS files)
 app.use(express.static('public'));
